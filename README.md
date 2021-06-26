@@ -1,6 +1,6 @@
 Simple restful api written in golang that inserts in mongdb
 
-### Structure
+#### Structure
 ```
 .
 ├── config
