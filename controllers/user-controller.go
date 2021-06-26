@@ -3,7 +3,6 @@ package controllers
 import (
 	"crud/models"
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"io/ioutil"
@@ -11,11 +10,11 @@ import (
 )
 
 func Create(w http.ResponseWriter, r *http.Request){
-	fmt.Println("we are in")
 	requestBody, _ := ioutil.ReadAll(r.Body)
 	var user models.User
 	json.Unmarshal(requestBody, &user)
-	result,err:=user.CreateUser(); if err != nil {
+	result,err:=user.CreateUser();
+	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 		return
