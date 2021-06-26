@@ -1,6 +1,6 @@
 Simple restful api written in golang that inserts in mongdb
 
-#### Structure
+##### Structure
 ```
 .
 ├── config
@@ -10,6 +10,8 @@ Simple restful api written in golang that inserts in mongdb
 └── main.go
 ```
 ##### Prerequisite
+install golang: https://golang.org/dl/
+
 install mongo db:
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 
