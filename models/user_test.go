@@ -27,8 +27,8 @@ func TestDeleteUserById(t *testing.T) {
 	if err !=nil {
 		t.Error("Fail to create user")
 	}
-	err2 := DeleteUserById(user.ID.Hex())
-	if err2 !=nil {
+	err = DeleteUserById(user.ID.Hex());
+	if err !=nil {
 		t.Error("Fail to delete user")
 	}
 }
@@ -39,21 +39,20 @@ func TestGetUserById(t *testing.T) {
 	if err !=nil {
 		t.Error("Fail to create user")
 	}
-	_,err2 := GetUserById(user.ID.Hex())
-	if err2 != nil {
+	_,err = GetUserById(user.ID.Hex())
+	if err != nil {
 		t.Error("Fail to get user")
 	}
 }
 
 func TestUpdateUser(t *testing.T) {
 	setUp(t)
-	user,err := u.CreateUser()
+	user,err := u.CreateUser();
 	if(err !=nil){
 		t.Error("Fail to create user")
 	}
 	user.Name ="peter"
-	err2 := UpdateUser(user)
-	if(err2 !=nil){
+	err = UpdateUser(user); if(err !=nil){
 		t.Error("Fail to update user")
 	}
 
@@ -61,7 +60,7 @@ func TestUpdateUser(t *testing.T) {
 
 func TestUser_CreateUser(t *testing.T) {
 	setUp(t)
-	_,err := u.CreateUser()
+	_,err := u.CreateUser();
 	if err !=nil {
 		t.Error("Fail to create user")
 	}

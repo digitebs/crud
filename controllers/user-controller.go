@@ -15,8 +15,7 @@ func Create(w http.ResponseWriter, r *http.Request){
 	requestBody, _ := ioutil.ReadAll(r.Body)
 	var user models.User
 	json.Unmarshal(requestBody, &user)
-	result,err:=user.CreateUser();
-	if err != nil {
+	result,err:=user.CreateUser(); if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 		return
@@ -52,14 +51,14 @@ func Update(w http.ResponseWriter, r *http.Request){
 	var user models.User
 	json.Unmarshal(requestBody, &user)
 
-	objectId, err3 := primitive.ObjectIDFromHex(key)
-	if err3 != nil{
+	objectId, err := primitive.ObjectIDFromHex(key)
+	if err != nil{
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(err3.Error()))
+		w.Write([]byte(err.Error()))
 		return
 	}
 	user.ID  =objectId
-	err := models.UpdateUser(user)
+	err = models.UpdateUser(user)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
